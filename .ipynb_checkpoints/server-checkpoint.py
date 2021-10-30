@@ -66,7 +66,6 @@ app.layout = html.Div([
 		dcc.Dropdown(id='parti_multi_valg', options=[{'value': x, 'label': x} for x in [*store_partier, *små_partier]], value=store_partier, multi=True)
 	]),
 	BooleanSwitch(id='parti_shadow', on=True, label="Tegn skygge af Landsparti områderne:",	labelPosition="top"),
-	BooleanSwitch(id='parti_shadow_filtered', on=False, label="Tegn skygge af pt valgt data:", labelPosition="top"),
 	dcc.Graph(id='viz'),
 ])
 
@@ -91,8 +90,8 @@ def styr_hurtig_vælgeren(valgte_partier, parti_vælger_radio):
 			return 'FV', ctx.inputs['parti_multi_valg.value']
 
 
-@app.callback(dependencies.Output('viz', 'figure'), [dependencies.Input('kommune_valg', 'value'),dependencies.Input('parti_multi_valg', 'value'), dependencies.Input('parti_shadow', 'on'), dependencies.Input('parti_shadow_filtered', 'on')])
-def update_graph(kom_filter, parti_filter, shadow, shadow_filter):
+@app.callback(dependencies.Output('viz', 'figure'), [dependencies.Input('kommune_valg', 'value'), dependencies.Input('parti_multi_valg', 'value'), dependencies.Input('parti_shadow', 'on')])
+def update_graph(kom_filter, parti_filter, shadow):
 	if 'alle' in kom_filter:
 		a = q[q.parti.isin(parti_filter)]
 	else:
@@ -101,15 +100,6 @@ def update_graph(kom_filter, parti_filter, shadow, shadow_filter):
 	f1 = px.scatter(a, x='X', y='y', color='parti', color_discrete_map=color_dict, hover_data=['navn', 'kommune', 'alder'], height=800, width=1200)
 	if shadow:
 		for ii, (i, data) in enumerate(q[q.parti.isin(store_partier)].groupby('parti')):
-			f1.add_shape(
-				type='path',
-				path=confidence_ellipse(data.X, data.y),
-				line_color='rgb(0,0,0,1)',
-				fillcolor=color_dict[i],
-				opacity=.2,
-			)
-	if shadow_filter:
-		for ii, (i, data) in enumerate(a.groupby('parti')):
 			f1.add_shape(
 				type='path',
 				path=confidence_ellipse(data.X, data.y),
