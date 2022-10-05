@@ -44,7 +44,7 @@ y = df['parti']
 lda = LinearDiscriminantAnalysis(n_components=2).fit(X, y)
 q = pd.concat([df, pd.DataFrame(PCA(n_components=2).fit_transform(X), columns=["X", "y"]).set_index(df.index)], axis=1)
 
-fv2022 = load(open('raw_data/TV2/fv2022.json'))
+fv2022 = load(open('fv2022.json'))
 spgs = [spg for spg in fv2022 if spg['id'] in dk_spg]
 svar_muligheder = ['helt uenig', 'uenig', 'neutral', 'enig', 'helt enig']
 
