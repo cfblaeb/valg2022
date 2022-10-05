@@ -1,0 +1,91 @@
+{
+	"TopMatches": [
+		{
+			"CandidateBasic": {
+				"Id": "858",
+				"Name": "Øjvind Vilsholm",
+				"Birthdate": "1967-06-03T00:00:00",
+				"PartyId": "6",
+				"Party": "Enhedslisten – De Rød-Grønne",
+				"PartyCode": "Ø",
+				"PartyLogo": "",
+				"Picture": "858-oejvind-vilsholm-a-632.jpg",
+				"UrlKey": "858-oejvind-vilsholm",
+				"Profession": "Privat ansat/selvstændig",
+				"LineUps": [
+					{
+						"lineUpName": "Nordsjællands Storkreds",
+						"groupType": "Bigconstituency"
+					},
+					{
+						"lineUpName": "Egedalkredsen",
+						"groupType": "SmallConstituency"
+					},
+					{
+						"lineUpName": "Rudersdalkredsen",
+						"groupType": "SmallConstituency"
+					},
+					{
+						"lineUpName": "Helsingørkredsen",
+						"groupType": "SmallConstituency"
+					},
+					{
+						"lineUpName": "Fredensborgkredsen",
+						"groupType": "SmallConstituency"
+					},
+					{
+						"lineUpName": "Hillerødkredsen",
+						"groupType": "SmallConstituency"
+					},
+					{
+						"lineUpName": "Frederikssundkredsen",
+						"groupType": "SmallConstituency"
+					}
+				]
+			},
+			"Matchpercent": 72,
+			"TopicMatch": [
+				{
+					"TopicId": "27",
+					"Title": "Arbejdsmarked og økonomi",
+					"MatchPercent": 70
+				},
+				{
+					"TopicId": "30",
+					"Title": "Demokrati",
+					"MatchPercent": 100
+				},
+				{
+					"TopicId": "14",
+					"Title": "EU og udenrigs",
+					"MatchPercent": 81
+				},
+				{
+					"TopicId": "26",
+					"Title": "Klima og energi",
+					"MatchPercent": 38
+				},
+				{
+					"TopicId": "16",
+					"Title": "Ret og straf",
+					"MatchPercent": 100
+				},
+				{
+					"TopicId": "13",
+					"Title": "Sundhed",
+					"MatchPercent": 50
+				},
+				{
+					"TopicId": "29",
+					"Title": "Uddannelse",
+					"MatchPercent": 62
+				},
+				{
+					"TopicId": "28",
+					"Title": "Velfærd",
+					"MatchPercent": 90
+				}
+			]
+		}
+	]
+}

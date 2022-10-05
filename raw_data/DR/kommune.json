@@ -1,0 +1,982 @@
+[
+  {
+    "value": {
+      "ID": 1,
+      "Name": "Albertslund Kommune",
+      "ID_KMD": 165,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Albertslund"
+    },
+    "label": "Albertslund"
+  },
+  {
+    "value": {
+      "ID": 2,
+      "Name": "Allerød Kommune",
+      "ID_KMD": 201,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Allerød"
+    },
+    "label": "Allerød"
+  },
+  {
+    "value": {
+      "ID": 5,
+      "Name": "Assens Kommune",
+      "ID_KMD": 420,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Assens"
+    },
+    "label": "Assens"
+  },
+  {
+    "value": {
+      "ID": 8,
+      "Name": "Ballerup Kommune",
+      "ID_KMD": 151,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Ballerup"
+    },
+    "label": "Ballerup"
+  },
+  {
+    "value": {
+      "ID": 9,
+      "Name": "Billund Kommune",
+      "ID_KMD": 530,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Billund"
+    },
+    "label": "Billund"
+  },
+  {
+    "value": {
+      "ID": 277,
+      "Name": "Bornholms Regionskommune",
+      "ID_KMD": 400,
+      "BIG_CONSTITUENCY_ID": 9,
+      "NameWithoutSuffix": "Bornholm"
+    },
+    "label": "Bornholm"
+  },
+  {
+    "value": {
+      "ID": 25,
+      "Name": "Brøndby Kommune",
+      "ID_KMD": 153,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Brøndby"
+    },
+    "label": "Brøndby"
+  },
+  {
+    "value": {
+      "ID": 26,
+      "Name": "Brønderslev Kommune",
+      "ID_KMD": 810,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Brønderslev"
+    },
+    "label": "Brønderslev"
+  },
+  {
+    "value": {
+      "ID": 32,
+      "Name": "Dragør Kommune",
+      "ID_KMD": 155,
+      "BIG_CONSTITUENCY_ID": 2,
+      "NameWithoutSuffix": "Dragør"
+    },
+    "label": "Dragør"
+  },
+  {
+    "value": {
+      "ID": 299,
+      "Name": "Egedal Kommune",
+      "ID_KMD": 240,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Egedal"
+    },
+    "label": "Egedal"
+  },
+  {
+    "value": {
+      "ID": 39,
+      "Name": "Esbjerg Kommune",
+      "ID_KMD": 561,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Esbjerg"
+    },
+    "label": "Esbjerg"
+  },
+  {
+    "value": {
+      "ID": 41,
+      "Name": "Fanø Kommune",
+      "ID_KMD": 563,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Fanø"
+    },
+    "label": "Fanø"
+  },
+  {
+    "value": {
+      "ID": 285,
+      "Name": "Favrskov Kommune",
+      "ID_KMD": 710,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Favrskov"
+    },
+    "label": "Favrskov"
+  },
+  {
+    "value": {
+      "ID": 304,
+      "Name": "Faxe Kommune",
+      "ID_KMD": 320,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Faxe"
+    },
+    "label": "Faxe"
+  },
+  {
+    "value": {
+      "ID": 47,
+      "Name": "Fredensborg Kommune",
+      "ID_KMD": 210,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Fredensborg"
+    },
+    "label": "Fredensborg"
+  },
+  {
+    "value": {
+      "ID": 48,
+      "Name": "Fredericia Kommune",
+      "ID_KMD": 607,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Fredericia"
+    },
+    "label": "Fredericia"
+  },
+  {
+    "value": {
+      "ID": 49,
+      "Name": "Frederiksberg Kommune",
+      "ID_KMD": 147,
+      "BIG_CONSTITUENCY_ID": 2,
+      "NameWithoutSuffix": "Frederiksberg"
+    },
+    "label": "Frederiksberg"
+  },
+  {
+    "value": {
+      "ID": 50,
+      "Name": "Frederikshavn Kommune",
+      "ID_KMD": 813,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Frederikshavn"
+    },
+    "label": "Frederikshavn"
+  },
+  {
+    "value": {
+      "ID": 51,
+      "Name": "Frederikssund Kommune",
+      "ID_KMD": 250,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Frederikssund"
+    },
+    "label": "Frederikssund"
+  },
+  {
+    "value": {
+      "ID": 296,
+      "Name": "Furesø Kommune",
+      "ID_KMD": 190,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Furesø"
+    },
+    "label": "Furesø"
+  },
+  {
+    "value": {
+      "ID": 289,
+      "Name": "Faaborg-Midtfyn Kommune",
+      "ID_KMD": 430,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Faaborg-Midtfyn"
+    },
+    "label": "Faaborg-Midtfyn"
+  },
+  {
+    "value": {
+      "ID": 57,
+      "Name": "Gentofte Kommune",
+      "ID_KMD": 157,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Gentofte"
+    },
+    "label": "Gentofte"
+  },
+  {
+    "value": {
+      "ID": 60,
+      "Name": "Gladsaxe Kommune",
+      "ID_KMD": 159,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Gladsaxe"
+    },
+    "label": "Gladsaxe"
+  },
+  {
+    "value": {
+      "ID": 62,
+      "Name": "Glostrup Kommune",
+      "ID_KMD": 161,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Glostrup"
+    },
+    "label": "Glostrup"
+  },
+  {
+    "value": {
+      "ID": 65,
+      "Name": "Greve Kommune",
+      "ID_KMD": 253,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Greve"
+    },
+    "label": "Greve"
+  },
+  {
+    "value": {
+      "ID": 302,
+      "Name": "Gribskov Kommune",
+      "ID_KMD": 270,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Gribskov"
+    },
+    "label": "Gribskov"
+  },
+  {
+    "value": {
+      "ID": 294,
+      "Name": "Guldborgsund Kommune",
+      "ID_KMD": 376,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Guldborgsund"
+    },
+    "label": "Guldborgsund"
+  },
+  {
+    "value": {
+      "ID": 72,
+      "Name": "Haderslev Kommune",
+      "ID_KMD": 510,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Haderslev"
+    },
+    "label": "Haderslev"
+  },
+  {
+    "value": {
+      "ID": 303,
+      "Name": "Halsnæs Kommune",
+      "ID_KMD": 260,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Halsnæs"
+    },
+    "label": "Halsnæs"
+  },
+  {
+    "value": {
+      "ID": 81,
+      "Name": "Hedensted Kommune",
+      "ID_KMD": 766,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Hedensted"
+    },
+    "label": "Hedensted"
+  },
+  {
+    "value": {
+      "ID": 84,
+      "Name": "Helsingør Kommune",
+      "ID_KMD": 217,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Helsingør"
+    },
+    "label": "Helsingør"
+  },
+  {
+    "value": {
+      "ID": 85,
+      "Name": "Herlev Kommune",
+      "ID_KMD": 163,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Herlev"
+    },
+    "label": "Herlev"
+  },
+  {
+    "value": {
+      "ID": 86,
+      "Name": "Herning Kommune",
+      "ID_KMD": 657,
+      "BIG_CONSTITUENCY_ID": 14,
+      "NameWithoutSuffix": "Herning"
+    },
+    "label": "Herning"
+  },
+  {
+    "value": {
+      "ID": 87,
+      "Name": "Hillerød Kommune",
+      "ID_KMD": 219,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Hillerød"
+    },
+    "label": "Hillerød"
+  },
+  {
+    "value": {
+      "ID": 90,
+      "Name": "Hjørring Kommune",
+      "ID_KMD": 860,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Hjørring"
+    },
+    "label": "Hjørring"
+  },
+  {
+    "value": {
+      "ID": 92,
+      "Name": "Holbæk Kommune",
+      "ID_KMD": 316,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Holbæk"
+    },
+    "label": "Holbæk"
+  },
+  {
+    "value": {
+      "ID": 96,
+      "Name": "Holstebro Kommune",
+      "ID_KMD": 661,
+      "BIG_CONSTITUENCY_ID": 14,
+      "NameWithoutSuffix": "Holstebro"
+    },
+    "label": "Holstebro"
+  },
+  {
+    "value": {
+      "ID": 98,
+      "Name": "Horsens Kommune",
+      "ID_KMD": 615,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Horsens"
+    },
+    "label": "Horsens"
+  },
+  {
+    "value": {
+      "ID": 102,
+      "Name": "Hvidovre Kommune",
+      "ID_KMD": 167,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Hvidovre"
+    },
+    "label": "Hvidovre"
+  },
+  {
+    "value": {
+      "ID": 104,
+      "Name": "Høje-Taastrup Kommune",
+      "ID_KMD": 169,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Høje-Taastrup"
+    },
+    "label": "Høje-Taastrup"
+  },
+  {
+    "value": {
+      "ID": 109,
+      "Name": "Hørsholm Kommune",
+      "ID_KMD": 223,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Hørsholm"
+    },
+    "label": "Hørsholm"
+  },
+  {
+    "value": {
+      "ID": 286,
+      "Name": "Ikast-Brande Kommune",
+      "ID_KMD": 756,
+      "BIG_CONSTITUENCY_ID": 14,
+      "NameWithoutSuffix": "Ikast-Brande"
+    },
+    "label": "Ikast-Brande"
+  },
+  {
+    "value": {
+      "ID": 112,
+      "Name": "Ishøj Kommune",
+      "ID_KMD": 183,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Ishøj"
+    },
+    "label": "Ishøj"
+  },
+  {
+    "value": {
+      "ID": 280,
+      "Name": "Jammerbugt Kommune",
+      "ID_KMD": 849,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Jammerbugt"
+    },
+    "label": "Jammerbugt"
+  },
+  {
+    "value": {
+      "ID": 117,
+      "Name": "Kalundborg Kommune",
+      "ID_KMD": 326,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Kalundborg"
+    },
+    "label": "Kalundborg"
+  },
+  {
+    "value": {
+      "ID": 120,
+      "Name": "Kerteminde Kommune",
+      "ID_KMD": 440,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Kerteminde"
+    },
+    "label": "Kerteminde"
+  },
+  {
+    "value": {
+      "ID": 122,
+      "Name": "Kolding Kommune",
+      "ID_KMD": 621,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Kolding"
+    },
+    "label": "Kolding"
+  },
+  {
+    "value": {
+      "ID": 124,
+      "Name": "Københavns Kommune",
+      "ID_KMD": 101,
+      "BIG_CONSTITUENCY_ID": 2,
+      "NameWithoutSuffix": "København"
+    },
+    "label": "København"
+  },
+  {
+    "value": {
+      "ID": 125,
+      "Name": "Køge Kommune",
+      "ID_KMD": 259,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Køge"
+    },
+    "label": "Køge"
+  },
+  {
+    "value": {
+      "ID": 290,
+      "Name": "Langeland Kommune",
+      "ID_KMD": 482,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Langeland"
+    },
+    "label": "Langeland"
+  },
+  {
+    "value": {
+      "ID": 130,
+      "Name": "Lejre Kommune",
+      "ID_KMD": 350,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Lejre"
+    },
+    "label": "Lejre"
+  },
+  {
+    "value": {
+      "ID": 131,
+      "Name": "Lemvig Kommune",
+      "ID_KMD": 665,
+      "BIG_CONSTITUENCY_ID": 14,
+      "NameWithoutSuffix": "Lemvig"
+    },
+    "label": "Lemvig"
+  },
+  {
+    "value": {
+      "ID": 293,
+      "Name": "Lolland Kommune",
+      "ID_KMD": 360,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Lolland"
+    },
+    "label": "Lolland"
+  },
+  {
+    "value": {
+      "ID": 134,
+      "Name": "Lyngby-Taarbæk Kommune",
+      "ID_KMD": 173,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Lyngby-Taarbæk"
+    },
+    "label": "Lyngby-Taarbæk"
+  },
+  {
+    "value": {
+      "ID": 135,
+      "Name": "Læsø Kommune",
+      "ID_KMD": 825,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Læsø"
+    },
+    "label": "Læsø"
+  },
+  {
+    "value": {
+      "ID": 282,
+      "Name": "Mariagerfjord Kommune",
+      "ID_KMD": 846,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Mariagerfjord"
+    },
+    "label": "Mariagerfjord"
+  },
+  {
+    "value": {
+      "ID": 142,
+      "Name": "Middelfart Kommune",
+      "ID_KMD": 410,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Middelfart"
+    },
+    "label": "Middelfart"
+  },
+  {
+    "value": {
+      "ID": 144,
+      "Name": "Morsø Kommune",
+      "ID_KMD": 773,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Morsø"
+    },
+    "label": "Morsø"
+  },
+  {
+    "value": {
+      "ID": 283,
+      "Name": "Norddjurs Kommune",
+      "ID_KMD": 707,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Norddjurs"
+    },
+    "label": "Norddjurs"
+  },
+  {
+    "value": {
+      "ID": 288,
+      "Name": "Nordfyns Kommune",
+      "ID_KMD": 480,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Nordfyn"
+    },
+    "label": "Nordfyn"
+  },
+  {
+    "value": {
+      "ID": 152,
+      "Name": "Nyborg Kommune",
+      "ID_KMD": 450,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Nyborg"
+    },
+    "label": "Nyborg"
+  },
+  {
+    "value": {
+      "ID": 156,
+      "Name": "Næstved Kommune",
+      "ID_KMD": 370,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Næstved"
+    },
+    "label": "Næstved"
+  },
+  {
+    "value": {
+      "ID": 164,
+      "Name": "Odder Kommune",
+      "ID_KMD": 727,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Odder"
+    },
+    "label": "Odder"
+  },
+  {
+    "value": {
+      "ID": 165,
+      "Name": "Odense Kommune",
+      "ID_KMD": 461,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Odense"
+    },
+    "label": "Odense"
+  },
+  {
+    "value": {
+      "ID": 292,
+      "Name": "Odsherred Kommune",
+      "ID_KMD": 306,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Odsherred"
+    },
+    "label": "Odsherred"
+  },
+  {
+    "value": {
+      "ID": 171,
+      "Name": "Randers Kommune",
+      "ID_KMD": 730,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Randers"
+    },
+    "label": "Randers"
+  },
+  {
+    "value": {
+      "ID": 301,
+      "Name": "Rebild Kommune",
+      "ID_KMD": 840,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Rebild"
+    },
+    "label": "Rebild"
+  },
+  {
+    "value": {
+      "ID": 287,
+      "Name": "Ringkøbing-Skjern Kommune",
+      "ID_KMD": 760,
+      "BIG_CONSTITUENCY_ID": 14,
+      "NameWithoutSuffix": "Ringkøbing-Skjern"
+    },
+    "label": "Ringkøbing-Skjern"
+  },
+  {
+    "value": {
+      "ID": 176,
+      "Name": "Ringsted Kommune",
+      "ID_KMD": 329,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Ringsted"
+    },
+    "label": "Ringsted"
+  },
+  {
+    "value": {
+      "ID": 178,
+      "Name": "Roskilde Kommune",
+      "ID_KMD": 265,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Roskilde"
+    },
+    "label": "Roskilde"
+  },
+  {
+    "value": {
+      "ID": 295,
+      "Name": "Rudersdal Kommune",
+      "ID_KMD": 230,
+      "BIG_CONSTITUENCY_ID": 5,
+      "NameWithoutSuffix": "Rudersdal"
+    },
+    "label": "Rudersdal"
+  },
+  {
+    "value": {
+      "ID": 187,
+      "Name": "Rødovre Kommune",
+      "ID_KMD": 175,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Rødovre"
+    },
+    "label": "Rødovre"
+  },
+  {
+    "value": {
+      "ID": 193,
+      "Name": "Samsø Kommune",
+      "ID_KMD": 741,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Samsø"
+    },
+    "label": "Samsø"
+  },
+  {
+    "value": {
+      "ID": 195,
+      "Name": "Silkeborg Kommune",
+      "ID_KMD": 740,
+      "BIG_CONSTITUENCY_ID": 14,
+      "NameWithoutSuffix": "Silkeborg"
+    },
+    "label": "Silkeborg"
+  },
+  {
+    "value": {
+      "ID": 198,
+      "Name": "Skanderborg Kommune",
+      "ID_KMD": 746,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Skanderborg"
+    },
+    "label": "Skanderborg"
+  },
+  {
+    "value": {
+      "ID": 200,
+      "Name": "Skive Kommune",
+      "ID_KMD": 779,
+      "BIG_CONSTITUENCY_ID": 14,
+      "NameWithoutSuffix": "Skive"
+    },
+    "label": "Skive"
+  },
+  {
+    "value": {
+      "ID": 207,
+      "Name": "Slagelse Kommune",
+      "ID_KMD": 330,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Slagelse"
+    },
+    "label": "Slagelse"
+  },
+  {
+    "value": {
+      "ID": 209,
+      "Name": "Solrød Kommune",
+      "ID_KMD": 269,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Solrød"
+    },
+    "label": "Solrød"
+  },
+  {
+    "value": {
+      "ID": 210,
+      "Name": "Sorø Kommune",
+      "ID_KMD": 340,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Sorø"
+    },
+    "label": "Sorø"
+  },
+  {
+    "value": {
+      "ID": 214,
+      "Name": "Stevns Kommune",
+      "ID_KMD": 336,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Stevns"
+    },
+    "label": "Stevns"
+  },
+  {
+    "value": {
+      "ID": 215,
+      "Name": "Struer Kommune",
+      "ID_KMD": 671,
+      "BIG_CONSTITUENCY_ID": 14,
+      "NameWithoutSuffix": "Struer"
+    },
+    "label": "Struer"
+  },
+  {
+    "value": {
+      "ID": 221,
+      "Name": "Svendborg Kommune",
+      "ID_KMD": 479,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Svendborg"
+    },
+    "label": "Svendborg"
+  },
+  {
+    "value": {
+      "ID": 284,
+      "Name": "Syddjurs Kommune",
+      "ID_KMD": 706,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Syddjurs"
+    },
+    "label": "Syddjurs"
+  },
+  {
+    "value": {
+      "ID": 229,
+      "Name": "Sønderborg Kommune",
+      "ID_KMD": 540,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Sønderborg"
+    },
+    "label": "Sønderborg"
+  },
+  {
+    "value": {
+      "ID": 233,
+      "Name": "Thisted Kommune",
+      "ID_KMD": 787,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Thisted"
+    },
+    "label": "Thisted"
+  },
+  {
+    "value": {
+      "ID": 244,
+      "Name": "Tønder Kommune",
+      "ID_KMD": 550,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Tønder"
+    },
+    "label": "Tønder"
+  },
+  {
+    "value": {
+      "ID": 246,
+      "Name": "Tårnby Kommune",
+      "ID_KMD": 185,
+      "BIG_CONSTITUENCY_ID": 2,
+      "NameWithoutSuffix": "Tårnby"
+    },
+    "label": "Tårnby"
+  },
+  {
+    "value": {
+      "ID": 305,
+      "Name": "Vallensbæk Kommune",
+      "ID_KMD": 187,
+      "BIG_CONSTITUENCY_ID": 4,
+      "NameWithoutSuffix": "Vallensbæk"
+    },
+    "label": "Vallensbæk"
+  },
+  {
+    "value": {
+      "ID": 252,
+      "Name": "Varde Kommune",
+      "ID_KMD": 573,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Varde"
+    },
+    "label": "Varde"
+  },
+  {
+    "value": {
+      "ID": 253,
+      "Name": "Vejen Kommune",
+      "ID_KMD": 575,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Vejen"
+    },
+    "label": "Vejen"
+  },
+  {
+    "value": {
+      "ID": 254,
+      "Name": "Vejle Kommune",
+      "ID_KMD": 630,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Vejle"
+    },
+    "label": "Vejle"
+  },
+  {
+    "value": {
+      "ID": 281,
+      "Name": "Vesthimmerlands Kommune",
+      "ID_KMD": 820,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Vesthimmerland"
+    },
+    "label": "Vesthimmerland"
+  },
+  {
+    "value": {
+      "ID": 255,
+      "Name": "Viborg Kommune",
+      "ID_KMD": 791,
+      "BIG_CONSTITUENCY_ID": 14,
+      "NameWithoutSuffix": "Viborg"
+    },
+    "label": "Viborg"
+  },
+  {
+    "value": {
+      "ID": 260,
+      "Name": "Vordingborg Kommune",
+      "ID_KMD": 390,
+      "BIG_CONSTITUENCY_ID": 6,
+      "NameWithoutSuffix": "Vordingborg"
+    },
+    "label": "Vordingborg"
+  },
+  {
+    "value": {
+      "ID": 291,
+      "Name": "Ærø Kommune",
+      "ID_KMD": 492,
+      "BIG_CONSTITUENCY_ID": 10,
+      "NameWithoutSuffix": "Ærø"
+    },
+    "label": "Ærø"
+  },
+  {
+    "value": {
+      "ID": 266,
+      "Name": "Aabenraa Kommune",
+      "ID_KMD": 580,
+      "BIG_CONSTITUENCY_ID": 11,
+      "NameWithoutSuffix": "Aabenraa"
+    },
+    "label": "Aabenraa"
+  },
+  {
+    "value": {
+      "ID": 269,
+      "Name": "Aalborg Kommune",
+      "ID_KMD": 851,
+      "BIG_CONSTITUENCY_ID": 17,
+      "NameWithoutSuffix": "Aalborg"
+    },
+    "label": "Aalborg"
+  },
+  {
+    "value": {
+      "ID": 271,
+      "Name": "Aarhus Kommune",
+      "ID_KMD": 751,
+      "BIG_CONSTITUENCY_ID": 15,
+      "NameWithoutSuffix": "Aarhus"
+    },
+    "label": "Aarhus"
+  }
+]
