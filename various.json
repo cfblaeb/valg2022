@@ -1,0 +1,35 @@
+{
+  "farver": {
+    "partyA": "#a82721",
+    "partyB": "#733280",
+    "partyC": "#96b226",
+    "partyD": "#127b7f",
+    "partyF": "#e07ea8",
+    "partyG": "#beaa64",
+    "partyI": "#3fb2be",
+    "partyK": "#8b8474",
+    "partyM": "#b48cd2",
+    "partyO": "#eac73e",
+    "partyQ": "#5abe82",
+    "partyV": "#254264",
+    "partyØ": "#e6801a",
+    "partyÆ": "#7896d2",
+    "partyÅ": "#2b8738",
+  },
+  "bogstav_leg": [
+    ["a", "socialdemokraterne"],
+    ["b", "radikale-venstre"],
+    ["c", "konservative"],
+    ["d", "nye-borgerlige"],
+    ["f", "sf"],
+    ["i", "liberal-alliance"],
+    ["k", "kristendemokraterne"],
+    ["m", "moderaterne"],
+    ["o", "dansk-folkeparti"],
+    ["q", "frie-groenne"],
+    ["v", "venstre"],
+    ["æ", "danmarksdemokraterne"],
+    ["ø", "enhedslisten"],
+    ["å", "alternativet"]
+  ]
+}
