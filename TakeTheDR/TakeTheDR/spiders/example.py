@@ -1,4 +1,5 @@
 import scrapy
+from asyncio import gather
 
 
 class DRSpider(scrapy.Spider):
@@ -18,7 +19,6 @@ class DRSpider(scrapy.Spider):
 
     async def parse_kandidat(self, response):
         page = response.meta["playwright_page"]
-        data = await page.evaluate('() => __NEXT_DATA__.props.pageProps.candidateAnswers')
-
-        yield {'data': data}
+        aNc = await gather(page.evaluate('() => __NEXT_DATA__.props.pageProps.candidateAnswers'), page.evaluate('() => __NEXT_DATA__.props.pageProps.candidate'))
+        yield {'kandidat': aNc}
         await page.close()
