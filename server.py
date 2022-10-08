@@ -7,7 +7,6 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.decomposition import PCA
 import numpy as np
 from flask import Flask
-from json import load
 
 
 def confidence_ellipse(x, y, n_std=1.96, size=100):
@@ -36,16 +35,27 @@ def confidence_ellipse(x, y, n_std=1.96, size=100):
 	return path
 
 
-df = pd.read_feather("2022_Lasse_data.feather")
-color_dict = {parti: px.colors.qualitative.Dark24[i] for i, parti in enumerate(df.parti.unique())}
-dk_spg = df.columns[1:-4]
+df = pd.read_feather("2022_Lasse_data.feather").reset_index()
+dk_spg = [
+	'530', '531', '533', '534', '535', '537', '538', '540', '541', '543', '544', '545', '546', '547', '548', '550',
+	'551', '552', '553', '555', '556', '557', '559', '561', '563', '1a', '1b', '2a', '2b', '3a', '3b', '4a', '4b', '5a',
+	'5b', '6a', '6b', '7a', '7b', '8a', '8b', '9a', '9b', '10a', '10b', '11a', '11b', '12a', '12b']
+color_dict = pd.read_json("various.json").set_index('bogstav_leg')['farver'].to_dict()
+
 X = df[dk_spg]
 y = df['parti']
-lda = LinearDiscriminantAnalysis(n_components=2).fit(X, y)
-q = pd.concat([df, pd.DataFrame(PCA(n_components=2).fit_transform(X), columns=["X", "y"]).set_index(df.index)], axis=1)
 
-fv2022 = load(open('fv2022.json'))
-spgs = [spg for spg in fv2022 if spg['id'] in dk_spg]
+lda = LinearDiscriminantAnalysis(n_components=2).fit(X, y)
+
+q = pd.concat([df, pd.DataFrame(lda.transform(df[dk_spg]), columns=["X", "y"]).set_index(df.index)], axis=1)
+# pd.DataFrame(PCA(n_components=2).fit_transform(X), columns=["X", "y"]).set_index(df.index)],
+fv2022 = pd.read_json('fv2022.json')
+dr_sprgs = pd.read_json('questions.json')
+dr_sprgs.columns = dr_sprgs.columns.str.lower()
+
+sprgs = pd.concat([fv2022, dr_sprgs])[['id', 'question']].set_index('id')
+sprgs.index = sprgs.index.astype('str')
+sprgs = sprgs.loc[dk_spg]
 svar_muligheder = ['helt uenig', 'uenig', 'neutral', 'enig', 'helt enig']
 
 server = Flask(__name__)
@@ -53,9 +63,12 @@ app = Dash(server=server)
 app.layout = html.Div([
 	html.Label([
 		"storkreds filter:",
-		dcc.Dropdown(id='storkreds_valg', options=[{'value': 'alle', 'label': 'alle'}, *[{'value': x, 'label': x} for x in df.storkreds.unique()]], value=['alle', ], multi=True)
+		dcc.Dropdown(id='storkreds_valg', options=[
+			{'value': 'alle', 'label': 'alle'},
+			*[{'value': x, 'label': x} for x in df.storkreds.unique()]
+		], value=['alle', ], multi=True)
 	]),
-	BooleanSwitch(id='parti_shadow', on=True, label="Tegn skygge af parti områderne:", labelPosition="top"),
+	BooleanSwitch(id='parti_shadow', on=False, label="Tegn skygge af parti områderne:", labelPosition="top"),
 	dcc.Graph(id='viz'),
 	html.Div(id="svar_res", children=["(her kommer forudsigelser om hvilket parti en 'klikket' politiker burde være i)"]),
 	dcc.Markdown('''
@@ -64,7 +77,7 @@ app.layout = html.Div([
 	helt uenig  --  uenig  --  neutral  --  enig  --  helt enig
 	'''),
 	html.Div([
-		dcc.RadioItems(id=spg['id'], options=[{'label': '' if x < 4 else spg['question'], 'value': x - 2} for x in range(5)], value=0, labelStyle={'display': 'inline-block'}) for spg in spgs
+		dcc.RadioItems(id=sprgs.loc[spg].name, options=[{'label': '' if x < 4 else sprgs.loc[spg]['question'], 'value': x / 4} for x in range(5)], value=0, labelStyle={'display': 'inline-block'}) for spg in dk_spg
 	]),
 ])
 
@@ -79,7 +92,7 @@ def update_graph(storkreds_filter, shadow):
 	f1 = px.scatter(a, x='X', y='y', color='parti', color_discrete_map=color_dict, hover_data=['navn', 'storkreds', 'alder'], custom_data=['index'], height=800, width=1200)
 	if shadow:
 		for ii, (i, data) in enumerate(q.groupby('parti')):
-			f1.add_shape(type='path', path=confidence_ellipse(data.X, data.y), line_color='rgb(0,0,0,1)', fillcolor=color_dict[i], opacity=.2,)
+			f1.add_shape(type='path', path=confidence_ellipse(data.X, data.y), line_color='rgb(0,0,0,1)', fillcolor=color_dict[i], opacity=.2, )
 	return f1
 
 
@@ -97,8 +110,7 @@ def display_click_data(clickData, spg_in):
 		row = q[q['index'] == idx]
 		parti = row['parti'].iloc[0]
 		nyt_parti = lda.predict(row[dk_spg])[0]
-		return [*[row[x].iloc[0] for x in dk_spg],
-				f"Du har klikket på {navn}, {parti}. Vedkomne burde overveje {nyt_parti}"]
+		return [*[row[x].iloc[0] for x in dk_spg], f"Du har klikket på {navn}, {parti}. Vedkomne burde overveje {nyt_parti}"]
 	else:
 		print(spg_in)
 		a = np.array(spg_in).reshape(1, -1)
