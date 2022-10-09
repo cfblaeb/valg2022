@@ -10,8 +10,8 @@ from flask import Flask
 # load data
 df = pd.read_feather("2022_Lasse_data.feather").reset_index()
 color_dict = pd.read_json("various.json").set_index('bogstav_leg')['farver'].to_dict()
-fv2022 = pd.read_json('fv2022.json')
-dr_sprgs = pd.read_json('questions.json')
+fv2022 = pd.read_json('raw_data/TV2/fv2022.json')
+dr_sprgs = pd.read_json('raw_data/DR/questions.json')
 
 dk_spg = [
 	'530', '531', '533', '534', '535', '537', '538', '540', '541', '543', '544', '545', '546', '547', '548', '550',
@@ -157,4 +157,4 @@ def display_click_data(clickData, spg_in):
 
 
 if __name__ == "__main__":
-	app.run_server()
+	app.run_server(debug=True)

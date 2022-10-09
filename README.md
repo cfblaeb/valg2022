@@ -1,8 +1,8 @@
 # Analyse af kandidaterne til 2022 valget
 
 ## Todo
-- Brug parti farver
-- Skift fra storkreds til valgkreds
+- Spørgsmål før radio buttons
+- Fix padding-left på radio buttons
 
 ## Data
 - DR
