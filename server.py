@@ -5,7 +5,7 @@ import plotly.express as px
 from dash import Dash, dcc, html, callback_context
 from dash.dependencies import Input, Output
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from flask import Flask
+
 
 # load data
 df = pd.read_feather("2022_Lasse_data.feather").reset_index()
@@ -33,47 +33,44 @@ svar_muligheder = ['helt uenig', 'uenig', 'neutral', 'enig', 'helt enig']
 
 
 def confidence_ellipse(xs, ys, n_std=1.96, size=100):
-	cov = np.cov(xs, ys)
-	pearson = cov[0, 1] / np.sqrt(cov[0, 0] * cov[1, 1])
-	ell_radius_x = np.sqrt(1 + pearson)
-	ell_radius_y = np.sqrt(1 - pearson)
-	theta = np.linspace(0, 2 * np.pi, size)
-	ellipse_coords = np.column_stack([ell_radius_x * np.cos(theta), ell_radius_y * np.sin(theta)])
-	x_scale = np.sqrt(cov[0, 0]) * n_std
-	x_mean = np.mean(xs)
-	y_scale = np.sqrt(cov[1, 1]) * n_std
-	y_mean = np.mean(ys)
-	translation_matrix = np.tile([x_mean, y_mean], (ellipse_coords.shape[0], 1))
-	rotation_matrix = np.array([[np.cos(np.pi / 4), np.sin(np.pi / 4)], [-np.sin(np.pi / 4), np.cos(np.pi / 4)]])
-	scale_matrix = np.array([[x_scale, 0], [0, y_scale]])
-	ellipse_coords = ellipse_coords.dot(rotation_matrix).dot(scale_matrix) + translation_matrix
+	if len(xs) != 1:
+		cov = np.cov(xs, ys)
+		pearson = cov[0, 1] / np.sqrt(cov[0, 0] * cov[1, 1])
+		ell_radius_x = np.sqrt(1 + pearson)
+		ell_radius_y = np.sqrt(1 - pearson)
+		theta = np.linspace(0, 2 * np.pi, size)
+		ellipse_coords = np.column_stack([ell_radius_x * np.cos(theta), ell_radius_y * np.sin(theta)])
+		x_scale = np.sqrt(cov[0, 0]) * n_std
+		x_mean = np.mean(xs)
+		y_scale = np.sqrt(cov[1, 1]) * n_std
+		y_mean = np.mean(ys)
+		translation_matrix = np.tile([x_mean, y_mean], (ellipse_coords.shape[0], 1))
+		rotation_matrix = np.array([[np.cos(np.pi / 4), np.sin(np.pi / 4)], [-np.sin(np.pi / 4), np.cos(np.pi / 4)]])
+		scale_matrix = np.array([[x_scale, 0], [0, y_scale]])
+		ellipse_coords = ellipse_coords.dot(rotation_matrix).dot(scale_matrix) + translation_matrix
 
-	path = f'M {ellipse_coords[0, 0]}, {ellipse_coords[0, 1]}'
-	for k in range(1, len(ellipse_coords)):
-		path += f'L{ellipse_coords[k, 0]}, {ellipse_coords[k, 1]}'
-	path += ' Z'
-	return path
+		path = f'M {ellipse_coords[0, 0]}, {ellipse_coords[0, 1]}'
+		for k in range(1, len(ellipse_coords)):
+			path += f'L{ellipse_coords[k, 0]}, {ellipse_coords[k, 1]}'
+		path += ' Z'
+		return path
 
-server = Flask(__name__)
+
 app = Dash(
-	server=server,
+	title="F2022 DumData analyse",
 	external_stylesheets=[dbc.themes.SOLAR, dbc.icons.BOOTSTRAP],
 	meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}, ],
 )
+server = app.server
 
 app.layout = dbc.Container([
 	dbc.Card(
 		dbc.Container(
 			[
 				html.H2("Folketingsvalg 2022"),
-				html.P(
-					"Analyse af hvor de enkelte kandidater står i forhold til hinanden og deres partier",
-					className="lead",
-				),
-			],
-			fluid=True,
-		),
-		body=True
+				html.P("Analyse af hvor de enkelte kandidater står i forhold til hinanden og deres partier", className="lead",),
+			], fluid=True,
+		), body=True
 	),
 	dbc.Card(
 		[
@@ -81,29 +78,27 @@ app.layout = dbc.Container([
 				html.H4("Begræns til valgte storkredse:", className="card-title"),
 				dcc.Dropdown(id='storkreds_valg', options=[{'value': 'alle', 'label': 'alle'}, *[{'value': x, 'label': x} for x in df.storkreds.unique()]], value=['alle', ], multi=True),
 			], body=True),
-			dbc.Card([
-				html.H4("Tegn cirkler der indikere partiernes områder", className="card-title"),
-				dbc.Switch(id='parti_shadow', value=True),
-			], body=True)
+			dbc.Card([dbc.Switch(id='parti_shadow', value=True, label="Tegn cirkler om partierne"), ], body=True)
 		],
 	),
+
 	dbc.Card(dcc.Graph(id='viz')),
 	dbc.Card(html.P("(her kommer forudsigelser om hvilket parti en 'klikket' politiker burde være i)", id="svar_res")),
 	dbc.Card([
-	dcc.Markdown('''
-	# SVAR
-	### Tryk på politiker for at se hans svar eller svar selv for at se hvor DU ligger
-	helt uenig  --  uenig  --  neutral  --  enig  --  helt enig
-	'''),
-	dbc.ListGroup([
-		dbc.ListGroupItem([
-			#dbc.RadioItems(id=sprgs.loc[spg].name, options=[{'label': '' if x < 4 else sprgs.loc[spg]['question'], 'value': x / 4} for x in range(5)], value=0, inline=True, style={"padding-left": "0px"}),
-			html.P(sprgs.loc[spg]['question']),
-			#dcc.RadioItems(id=sprgs.loc[spg].name, options=[{'label': '' if x < 4 else sprgs.loc[spg]['question'], 'value': x / 4} for x in range(5)], value=0, labelStyle={'display': 'inline-block'})
-			dcc.RadioItems(id=sprgs.loc[spg].name, options=[{'label': '', 'value': x / 4} for x in range(5)], value=0, labelStyle={'display': 'inline-block'})
-		]) for spg in dk_spg
-	], flush=True)], body=True),
-], fluid=True)
+		dcc.Markdown('''
+		# SVAR
+		### Tryk på politiker for at se hans svar eller svar selv for at se hvor DU ligger
+		helt uenig  --  uenig  --  neutral  --  enig  --  helt enig
+		'''),
+		dbc.ListGroup([
+			dbc.ListGroupItem([
+				html.P(sprgs.loc[spg]['question']),
+				dcc.RadioItems(id=sprgs.loc[spg].name, options=[{'label': '', 'value': x / 4} for x in range(5)], value=0, labelStyle={'display': 'inline-block'})
+			]) for spg in dk_spg
+		], flush=True)
+	], body=True)
+	, ], fluid=True
+)
 
 
 # %%
@@ -112,7 +107,7 @@ def update_graph(storkreds_filter, shadow):
 	if 'alle' in storkreds_filter and len(storkreds_filter) != 1:
 		storkreds_filter = [x for x in storkreds_filter if x != 'alle']
 	elif len(storkreds_filter) == 0:
-		storkreds_filter = ['alle',]
+		storkreds_filter = ['alle', ]
 	if 'alle' in storkreds_filter:
 		a = q
 	else:
@@ -120,17 +115,16 @@ def update_graph(storkreds_filter, shadow):
 
 	f1 = px.scatter(
 		a, x='X', y='y', color='parti', color_discrete_map=color_dict, hover_data=['navn', 'storkreds', 'alder'],
-		custom_data=['index'], template="plotly_dark"
+		custom_data=['index'], template="plotly_dark", width=800  # , marginal_x='box'
 	)
+	f1.layout.xaxis.fixedrange = True
+	f1.layout.yaxis.fixedrange = True
+	f1.update_layout(modebar_remove=['zoom', 'pan', 'select', 'lasso2d'])
+
 	if shadow:
 		for ii, (i, data) in enumerate(q.groupby('parti')):
-			f1.add_shape(
-				type='path',
-				path=confidence_ellipse(data.X, data.y),
-				line_color='rgb(255,255,255,1)',
-				fillcolor=color_dict[i],
-				opacity=.4,
-			)
+			if len(data.X) != 1:
+				f1.add_shape(type='path', path=confidence_ellipse(data.X, data.y), line_color='rgb(255,255,255,1)', fillcolor=color_dict[i], opacity=.4,)
 
 	return f1, storkreds_filter
 
@@ -157,4 +151,4 @@ def display_click_data(clickData, spg_in):
 
 
 if __name__ == "__main__":
-	app.run_server()
+	app.run_server()  # debug=True)
