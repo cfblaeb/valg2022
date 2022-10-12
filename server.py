@@ -59,7 +59,7 @@ def confidence_ellipse(xs, ys, n_std=1.96, size=100):
 app = Dash(
 	title="F2022 DumData analyse",
 	external_stylesheets=[dbc.themes.SOLAR, dbc.icons.BOOTSTRAP],
-	meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}, ],
+	meta_tags=[{"name": "viewport", "content": "width=800, initial-scale=0.1"}, ],
 )
 server = app.server
 
@@ -69,7 +69,7 @@ app.layout = dbc.Container([
 			[
 				html.H2("Folketingsvalg 2022"),
 				html.P("Analyse af hvor de enkelte kandidater står i forhold til hinanden og deres partier", className="lead",),
-			], fluid=True,
+			], #fluid=True,
 		), body=True
 	),
 	dbc.Card(
@@ -97,7 +97,7 @@ app.layout = dbc.Container([
 			]) for spg in dk_spg
 		], flush=True)
 	], body=True)
-	, ], fluid=True
+	, ], #fluid=True
 )
 
 
@@ -151,4 +151,5 @@ def display_click_data(clickData, spg_in):
 
 
 if __name__ == "__main__":
-	app.run_server()  # debug=True)
+	app.run_server()
+	#app.run_server(debug=True)
