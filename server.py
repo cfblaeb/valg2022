@@ -9,7 +9,9 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 # load data
 df = pd.read_feather("2022_Lasse_data.feather").reset_index()
+df.parti.replace("Frie Grønne, Danmarks Nye Venstrefløjsparti", "Frie Grønne", inplace=True)
 color_dict = pd.read_json("various.json").set_index('bogstav_leg')['farver'].to_dict()
+color_dict['Frie Grønne'] = color_dict['Frie Grønne, Danmarks Nye Venstrefløjsparti']
 fv2022 = pd.read_json('fv2022.json')
 dr_sprgs = pd.read_json('questions.json')
 
@@ -115,7 +117,7 @@ def update_graph(storkreds_filter, shadow):
 
 	f1 = px.scatter(
 		a, x='X', y='y', color='parti', color_discrete_map=color_dict, hover_data=['navn', 'storkreds', 'alder'],
-		custom_data=['index'], template="plotly_dark", width=1000  # , marginal_x='box'
+		custom_data=['index'], template="plotly_dark"#, width=1000  # , marginal_x='box'
 	)
 	f1.layout.xaxis.fixedrange = True
 	f1.layout.yaxis.fixedrange = True
