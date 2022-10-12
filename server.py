@@ -106,6 +106,7 @@ app.layout = dbc.Container([
 # %%
 @app.callback([Output('viz', 'figure'), Output('storkreds_valg', 'value')], [Input('storkreds_valg', 'value'), Input('parti_shadow', 'value')])
 def update_graph(storkreds_filter, shadow):
+	#global dine_coords, dine_aktiv
 	if 'alle' in storkreds_filter and len(storkreds_filter) != 1:
 		storkreds_filter = [x for x in storkreds_filter if x != 'alle']
 	elif len(storkreds_filter) == 0:
@@ -127,15 +128,23 @@ def update_graph(storkreds_filter, shadow):
 		for ii, (i, data) in enumerate(q.groupby('parti')):
 			if len(data.X) != 1:
 				f1.add_shape(type='path', path=confidence_ellipse(data.X, data.y), line_color='rgb(255,255,255,1)', fillcolor=color_dict[i], opacity=.4,)
+	#if dine_aktiv:
+	#f1.add_scatter(x=[dine_coords[0]], y=[dine_coords[1]], mode='markers', marker_symbol='star', marker_size=15)
 
 	return f1, storkreds_filter
 
 
+#dine_coords = [0, 0]  # tracker bruger svar til tegning i viz
+#dine_aktiv = False  # tracker om vi tracker bruger svar eller har trykker på en politiker
+
+
 @app.callback([*[Output(x, 'value') for x in dk_spg], Output('svar_res', 'children')], {'clickData': Input('viz', 'clickData'), 'spg_in': [Input(x, 'value') for x in dk_spg]})
 def display_click_data(clickData, spg_in):
+	#global dine_coords, dine_aktiv
 	ctx = callback_context
 	trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
 	if trigger_id == 'viz':
+		dine_aktiv = False
 		if clickData and len(clickData['points']) != 0:
 			idx = clickData['points'][0]['customdata'][0]
 			navn = clickData['points'][0]['customdata'][1]
@@ -147,11 +156,12 @@ def display_click_data(clickData, spg_in):
 		nyt_parti = lda.predict(row[dk_spg])[0]
 		return [*[row[x].iloc[0] for x in dk_spg], f"Du har klikket på {navn}, {parti}. Vedkomne burde overveje {nyt_parti}"]
 	else:
+		dine_aktiv = True
 		a = pd.DataFrame(spg_in, index=dk_spg).T
-		b = lda.transform(a)[0]
-		return [*[x for x in spg_in], f"Dine koordinater er {b[0]:.1f}, {b[1]:.1f}. Du burde overveje {lda.predict(a)[0]}"]
+		dine_coords = lda.transform(a)[0]
+		return [*[x for x in spg_in], f"Dine koordinater er {dine_coords[0]:.1f}, {dine_coords[1]:.1f}. Du burde overveje {lda.predict(a)[0]}"]
 
 
 if __name__ == "__main__":
-	app.run_server()
-	#app.run_server(debug=True)
+	#app.run_server()
+	app.run_server(debug=True)
