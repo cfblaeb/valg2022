@@ -59,7 +59,7 @@ def confidence_ellipse(xs, ys, n_std=1.96, size=100):
 app = Dash(
 	title="F2022 DumData analyse",
 	external_stylesheets=[dbc.themes.SOLAR, dbc.icons.BOOTSTRAP],
-	meta_tags=[{"name": "viewport", "content": "width=800, initial-scale=0.5"}, ],
+	meta_tags=[{"name": "viewport", "content": "width=1000, initial-scale=1"}, ],
 )
 server = app.server
 
