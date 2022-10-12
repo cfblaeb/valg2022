@@ -59,7 +59,7 @@ def confidence_ellipse(xs, ys, n_std=1.96, size=100):
 app = Dash(
 	title="F2022 DumData analyse",
 	external_stylesheets=[dbc.themes.SOLAR, dbc.icons.BOOTSTRAP],
-	meta_tags=[{"name": "viewport", "content": "width=800, initial-scale=0.1"}, ],
+	meta_tags=[{"name": "viewport", "content": "width=800, initial-scale=0.5"}, ],
 )
 server = app.server
 
@@ -115,7 +115,7 @@ def update_graph(storkreds_filter, shadow):
 
 	f1 = px.scatter(
 		a, x='X', y='y', color='parti', color_discrete_map=color_dict, hover_data=['navn', 'storkreds', 'alder'],
-		custom_data=['index'], template="plotly_dark", width=800  # , marginal_x='box'
+		custom_data=['index'], template="plotly_dark", width=1000  # , marginal_x='box'
 	)
 	f1.layout.xaxis.fixedrange = True
 	f1.layout.yaxis.fixedrange = True
