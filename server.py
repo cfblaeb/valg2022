@@ -163,5 +163,5 @@ def display_click_data(clickData, spg_in):
 
 
 if __name__ == "__main__":
-	#app.run_server()
-	app.run_server(debug=True)
+	app.run_server()
+	#app.run_server(debug=True)
