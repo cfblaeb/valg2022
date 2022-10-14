@@ -2,7 +2,6 @@
 
 ## Todo
 - Tegn et kryds der hvor folk lander i koordinatsystemet
-- Gør noget for farveblinde.
 
 ## Data
 - DR

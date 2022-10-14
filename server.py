@@ -26,6 +26,9 @@ X = df[dk_spg]
 y = df['parti']
 lda = LinearDiscriminantAnalysis(n_components=2).fit(X, y)
 q = pd.concat([df, pd.DataFrame(lda.transform(df[dk_spg]), columns=["X", "y"]).set_index(df.index)], axis=1)
+# hjælp til farveblinde
+q['bogstav'] = q.parti.map(pd.read_json("various.json").reset_index().set_index('bogstav_leg')['index'])
+q['sized'] = 5
 
 dr_sprgs.columns = dr_sprgs.columns.str.lower()
 sprgs = pd.concat([fv2022, dr_sprgs])[['id', 'question']].set_index('id')
@@ -80,7 +83,10 @@ app.layout = dbc.Container([
 				html.H4("Begræns til valgte storkredse:", className="card-title"),
 				dcc.Dropdown(id='storkreds_valg', options=[{'value': 'alle', 'label': 'alle'}, *[{'value': x, 'label': x} for x in df.storkreds.unique()]], value=['alle', ], multi=True),
 			], body=True),
-			dbc.Card([dbc.Switch(id='parti_shadow', value=True, label="Tegn cirkler om partierne"), ], body=True)
+			dbc.Card([
+				dbc.Switch(id='parti_shadow', value=True, label="Tegn cirkler om partierne"),
+				dbc.Switch(id='farveblind', value=False, label="Farveblind mode"),
+			], body=True)
 		],
 	),
 
@@ -104,8 +110,8 @@ app.layout = dbc.Container([
 
 
 # %%
-@app.callback([Output('viz', 'figure'), Output('storkreds_valg', 'value')], [Input('storkreds_valg', 'value'), Input('parti_shadow', 'value')])
-def update_graph(storkreds_filter, shadow):
+@app.callback([Output('viz', 'figure'), Output('storkreds_valg', 'value')], [Input('storkreds_valg', 'value'), Input('parti_shadow', 'value'), Input('farveblind', 'value')])
+def update_graph(storkreds_filter, shadow, farveblind):
 	#global dine_coords, dine_aktiv
 	if 'alle' in storkreds_filter and len(storkreds_filter) != 1:
 		storkreds_filter = [x for x in storkreds_filter if x != 'alle']
@@ -115,11 +121,19 @@ def update_graph(storkreds_filter, shadow):
 		a = q
 	else:
 		a = q[q.storkreds.isin(storkreds_filter)]
+	if farveblind:
+		f1 = px.scatter(
+			a, x='X', y='y', color='parti', color_discrete_map=color_dict, hover_data=['navn', 'storkreds', 'alder'],
+			custom_data=['index'], template="plotly_dark", labels={"X": "Hjalmesans", "y": "Fluplighed"},
+			size='sized', text='bogstav', size_max=15
+			# , width=1000  # , marginal_x='box'
+		)
+	else:
+		f1 = px.scatter(
+			a, x='X', y='y', color='parti', color_discrete_map=color_dict, hover_data=['navn', 'storkreds', 'alder'],
+			custom_data=['index'], template="plotly_dark", labels={"X": "Hjalmesans", "y": "Fluplighed"},
+		)
 
-	f1 = px.scatter(
-		a, x='X', y='y', color='parti', color_discrete_map=color_dict, hover_data=['navn', 'storkreds', 'alder'],
-		custom_data=['index'], template="plotly_dark"#, width=1000  # , marginal_x='box'
-	)
 	f1.layout.xaxis.fixedrange = True
 	f1.layout.yaxis.fixedrange = True
 	f1.update_layout(modebar_remove=['zoom', 'pan', 'select', 'lasso2d'])
