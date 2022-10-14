@@ -89,7 +89,7 @@ app.layout = dbc.Container([
 	dbc.Card([
 		dcc.Markdown('''
 		# SVAR
-		### Tryk på politiker for at se hans svar eller svar selv for at se hvor DU ligger
+		### Tryk på politiker for at se deres svar eller svar selv for at se hvor DU ligger
 		helt uenig  --  uenig  --  neutral  --  enig  --  helt enig
 		'''),
 		dbc.ListGroup([
