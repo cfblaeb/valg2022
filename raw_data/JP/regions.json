@@ -1,0 +1,62 @@
+[
+  {
+    "ID": 42,
+    "Name": "Københavns Storkreds",
+    "ParentID": 20,
+    "ParentName": "Hovedstaden"
+  },
+  {
+    "ID": 43,
+    "Name": "Københavns Omegns Storkreds",
+    "ParentID": 20,
+    "ParentName": "Hovedstaden"
+  },
+  {
+    "ID": 44,
+    "Name": "Nordsjællands Storkreds",
+    "ParentID": 20,
+    "ParentName": "Hovedstaden"
+  },
+  {
+    "ID": 45,
+    "Name": "Bornholms Storkreds",
+    "ParentID": 20,
+    "ParentName": "Hovedstaden"
+  },
+  {
+    "ID": 46,
+    "Name": "Sjællands Storkreds",
+    "ParentID": 21,
+    "ParentName": "Sjælland-Syddanmark"
+  },
+  {
+    "ID": 47,
+    "Name": "Fyns Storkreds",
+    "ParentID": 21,
+    "ParentName": "Sjælland-Syddanmark"
+  },
+  {
+    "ID": 48,
+    "Name": "Sydjyllands Storkreds",
+    "ParentID": 21,
+    "ParentName": "Sjælland-Syddanmark"
+  },
+  {
+    "ID": 49,
+    "Name": "Østjyllands Storkreds",
+    "ParentID": 22,
+    "ParentName": "Midtjylland-Nordjylland"
+  },
+  {
+    "ID": 50,
+    "Name": "Vestjyllands Storkreds",
+    "ParentID": 22,
+    "ParentName": "Midtjylland-Nordjylland"
+  },
+  {
+    "ID": 51,
+    "Name": "Nordjyllands Storkreds",
+    "ParentID": 22,
+    "ParentName": "Midtjylland-Nordjylland"
+  }
+]

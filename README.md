@@ -7,9 +7,6 @@
 - DR
 - TV2
 
-## Fun facts
-- Mange af de opstillede har ikke svaret på DR/TV2s kandidattest, bl.a. Sikander Sadik
-
 ## Nemmeste måde at lege med data på?
 - Åbn webit.ipynb i jupyter
 - Du skal bruge:
