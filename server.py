@@ -9,7 +9,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 # load data
 df = pd.read_feather("2022_Lasse_data.feather").reset_index()
-df.parti.replace("Frie Grønne, Danmarks Nye Venstrefløjsparti", "Frie Grønne", inplace=True)
+df.replace({'parti': {"Frie Grønne, Danmarks Nye Venstrefløjsparti": "Frie Grønne"}}, inplace=True)
 color_dict = pd.read_json("various.json").set_index('bogstav_leg')['farver'].to_dict()
 color_dict['Frie Grønne'] = color_dict['Frie Grønne, Danmarks Nye Venstrefløjsparti']
 fv2022 = pd.read_json('fv2022.json')
